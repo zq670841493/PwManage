@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+#content{width:1900px; height:880px; float:inherit; display:flex;justify-context:centet;align-items:center;border:1px dashed #CCC;border-radius:10px 10px 10px 10px;}
+
+#login{width:400px; height:500px; margin:auto; border-radius:10px 10px 10px 10px; border:1px dashed #CCC; text-align:center}
+
+#warning{width:400px; height:300px; margin:auto; border-radius:10px 10px 10px 10px; border:1px dashed #CCC; text-align:center}
+/*主框架*/
+#main{width:1890px; height:900px;border:1px dashed #CCC;border-radius:10px 10px 10px 10px;}
+
+#k1{width:1890px; height:50px;  margin-top:0px;border-radius:5px 5px 5px 5px; border:0px dashed #CCC;background:#CCC}
+#k2{width:1890px; height:870px; margin-top:1px;border-radius:10px 10px 10px 10px; border:1px dashed #CCC;}
+
+#k3{width:150px; height:30px; float:right; margin-top:15px; margin-right:10px}
+#k4{width:250px; height:30px; float:left; margin-top:-5px; margin-right:5px;}
+
+/*左框架*/
+#left{width:150px; height:900px;  margin-top:0px;border-radius:10px 10px 10px 10px; border:1px dashed #CCC; float:left}
+/*右框架*/
+#right{width:1735px; height:900px;  margin-top:1px;border-radius:10px 10px 10px 10px; border:1px dashed #CCC; float:right}

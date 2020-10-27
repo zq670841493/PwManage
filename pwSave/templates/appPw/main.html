@@ -1,0 +1,125 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="{% static '/appPw/css/login.css' %}" rel="stylesheet" type="text/css" />
+<title>密码管理平台</title>
+<link href="login.css" rel="stylesheet" type="text/css" />
+     <link href="{% static '/appPw/css/nav.css' %}" rel="stylesheet" type="text/css" />
+
+    <link href="{% static '/appPw/css/iconfont.css' %}" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="{%  static '/appPw/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{%  static '/appPw/js/nav.js' %}"></script>
+</head>
+<style type="text/css">
+input{
+	outline-style:none;
+	border: 1px solid #ccc; 
+	color:#C09;
+	border-radius: 8px 8px 8px 8px ;
+	padding: 1px 0px;
+	width:50px;
+	font-size: 12px;
+	font-family: "Microsoft soft";
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+a {text-decoration:none}
+/*去掉下划线*/
+*{margin:0;padding:0}
+a{text-decoration:none}
+
+.frame_style{
+	 border:0.5px;solid:#FFF;
+ }
+</style>
+<body>
+<div id="main">
+<div id="k1">
+    <div id="k4"><a href="{% url 'main' %}">&nbsp;&nbsp;<h3>&nbsp;&nbsp;<font color="#FFFFFF">&nbsp;&nbsp;用户名：{{username}}</font></h3></div></a>
+   <div id="k4">
+    <a href="{% url 'changePw' %}" target="n1">&nbsp;&nbsp;<h3>&nbsp;&nbsp;<font color="#FFFFFF">&nbsp;&nbsp;修改密码</font></h3></div></a>
+<div id="k3">
+<a href="{% url 'quit' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注&nbsp;&nbsp;销</a>
+</div>
+</div>
+<div id="left">
+  <div class="nav">
+        <div class="nav-top">
+            <div  style="border-bottom:1px solid rgba(255,255,255,.1)"><img src="{% static '/appPw/images/mini.png' %}" ></div>
+        </div>
+
+                <ul>
+                    <li><a href="{% url 'pwadd' %}" target="n1"><span>添加信息</span></a></li>
+                     <li><a href="{% url 'pwShow' 1 15 %}" target="n1"><span>信息列表</span></a></li>
+                     <li><a href="{% url 'logShow' 1 20 %}" target="n1"><span>操作日志</span></a></li>                    
+                </ul>
+        </ul>
+    </div>
+</div>
+<div id="right">
+<iframe name="n1" scrolling="auto"  frameborder="0" width="100%" height="100%" marginheight="0" marginwidth="0"   class="frame_style" src="{% static '/appPw/images/image.jpg' %}"></iframe>
+</div>
+</div>
+</form>
+
+<script type="text/javascript">
+//禁用浏览器后退功能
+history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    history.pushState(null, null, document.URL);
+});
+</script>
+
+<script type="text/javascript" >
+    function add_user_into_cookie() {
+        document.cookie = "user = " + $("#txt_user").val();
+    }
+    function add_passwd_into_cookie() {
+        document.cookie = "password = " + $("#txt_passwd").val();
+    }
+</script>
+
+<script type="text/javascript">
+        document.onkeydown = function (e) {
+        var ev = window.event || e;
+        var code = ev.keyCode || ev.which;
+        if (code == 116) {
+        ev.keyCode ? ev.keyCode = 0 : ev.which = 0;
+        cancelBubble = true;
+        return false;
+        }
+        } //禁止f5刷新
+        document.οncοntextmenu=function(){return false};//禁止右键刷新
+    </script>
+
+<script type="text/javascript">
+        window.onload = function(){
+            //屏蔽键盘事件
+            document.onkeydown = function (){
+                var e = window.event || arguments[0];
+                //F12
+                if(e.keyCode == 123){
+                    return false;
+                //Ctrl+Shift+I
+                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
+                    return false;
+                //Shift+F10
+                }else if((e.shiftKey) && (e.keyCode == 121)){
+                    return false;
+                //Ctrl+U
+                }else if((e.ctrlKey) && (e.keyCode == 85)){
+                    return false;
+                }
+            };
+            //屏蔽鼠标右键
+            document.oncontextmenu = function (){
+                return false;
+            }
+        }
+
+    </script>
+</body>
+</html>

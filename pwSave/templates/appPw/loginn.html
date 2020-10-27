@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8">
+<title>密码管理平台</title>
+<link rel="stylesheet" href="{% static 'appPw/css/style.css' %}">
+</head>
+
+<div style="text-align:center;">
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+    <div class="content">
+        <div class="form sign-in">
+            <h2>欢迎回来</h2>
+            <label>
+                <span>用户名</span>
+                <input type="text" name="name" value="{{name}}"/>
+            </label>
+            <label>
+                <span>密码</span>
+                <input type="password" name="pwd"/>
+            </label>
+            <p class="forgot-pass"><a href="{% url 'findpw' %}">忘记密码？</a></p>
+            <button type="submit" class="submit" >登 录</button>
+          
+            <span   style="color:red"  >{{news}}</span>
+            <!-- <button type="button" class="fb-btn">使用 <span>facebook</span> 帐号登录</button> -->            
+                
+        </div>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+                    <h2>还未注册？</h2>
+                    <p>注册一个吧？ 方便管理密码！</p>
+                </div>
+     
+                <div class="img__btn">
+                    <a href="{% url 'register' %}"> <font color="white" size="5">点击注册</font></a>    
+                    
+
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+        
+	
+
+    </form>
+     
+
+
+
+
+</div>
+</body>
+
+</html>

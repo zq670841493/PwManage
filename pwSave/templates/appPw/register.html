@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8">
+<title>账号注册</title>
+<link rel="stylesheet" href="{% static 'appPw/css/style.css' %}">
+</head>
+
+<style > a{ text-decoration:none} </style>     <!-- 去掉下划线 -->
+
+
+<body>
+
+    <div class="content">
+
+        <div class="form sign-in">
+            <div class="img">
+ 
+                <div class="img__text m--up">
+                    <h2>已有帐号？</h2>
+                    <p>有帐号就登录吧，好久不见了！</p>
+                </div> 
+                <div class="img__btn">
+                    <a href="{% url 'loginn' %}"> <font color="white" size="5">点击登录</font></a>                    
+
+                </div>
+            </div>
+
+          <form method="post">
+            {% csrf_token %}
+            <div class="form sign-inn">
+                <h2>立即注册</h2>
+                <label>
+                    <span>用户名</span>
+                    <input type="text" name="username" value="{{username}}"/>
+                </label>
+                <label>
+                    <span>邮箱用于找回密码</span>
+                    <input type="email" name="email" value="{{email}}"/>
+                </label>
+                <label>
+                    <span>密码</span>
+                    <input type="password" name="pwd"/>
+                </label>
+
+                 <label>
+                        <span>再次输入密码</span>
+                            <input type="password"  name="re_pwd" />
+           
+                </label>
+                <button type="submit" class="submit">注 册</button>
+            </form>
+                <div style="text-align:center;">  
+                <span style="color:red">{{info}}</span>
+            </div>
+        </div>
+    </div>
+          
+
+    <!-- <script src="{% static 'appPw/js/script.js' %}"></script> -->
+    
+
+    </form>
+     
+
+
+
+
+</div>
+</body>
+
+</html>

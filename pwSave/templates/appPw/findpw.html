@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>找回密码</title>
+<link href="{% static 'appPw/css/login.css' %}" rel="stylesheet" type="text/css" />
+    
+</head>
+<style type="text/css">
+input{
+	outline-style:none;
+	border: 1px solid #ccc; 
+	border-radius: 8px 8px 8px 8px ;
+	padding: 6px 0px;
+	width:280px;
+	font-size: 14px;
+	font-family: "Microsoft soft";
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+</style>
+<body>
+<form action="" method="post">
+<div id="content">
+<div id="login">
+<h2>找回密码</h2>
+    {% csrf_token %}
+
+<p>输入邮箱地址</p>
+
+<input type="email" name="email" value="{{email}}" />
+
+<br />
+<br />
+<input type="submit"  value="提&nbsp;&nbsp;交" />
+<p style="color:red">{{info}}</p>
+<P>记得密码？直接登录</P>
+<a href="{% url 'loginn' %}" >登录</a>
+	<br>
+
+</div>
+</div>
+</form>
+</body>
+</html>

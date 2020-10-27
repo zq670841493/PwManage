@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+#content{width:1900px; height:900px; float:center;  margin-top:1px; margin:auto;}
+#time{width:400px; height:50px; float:right; margin:auto; line-height:3; font-size:18px; line-height:50px}
+#h{width:580px; height:50px; float:left; margin-bottom:5px;}
+#pm{width:1900px; height:50px; float:center;  margin-top:1px; margin:auto}
+#p1{width:1900px; height:410px; float:center; margin-top:1px; margin:auto}
+#p2{width:1900px; height:410px; float:center;  margin-top:1px; margin:auto}
+
+#k1{width:631px; height:410px; float:left;  margin:left;border:1px dashed #F0F0F0; overflow:scroll}
+#k2{width:631px; height:410px; float:right; margin:auto;border:1px dashed #F0F0F0;overflow:scroll}
+#y1{width:631px; height:410px; float:left;  margin:left;border:1px dashed #F0F0F0;overflow:scroll}
+
+
+#y2{width:631px; height:410px; float:right; margin:left;border:1px dashed #F0F0F0;overflow:scroll}
+#m1{width:631px; height:410px; float:left;  margin:auto;border:1px dashed #F0F0F0;overflow:scroll}
+#m2{width:631px; height:410px; float:right;  margin:left;border:1px dashed #F0F0F0;overflow:scroll}
+
+
+#fk2{width:1900px; height:50px; float:center;  margin-top:0px; margin:auto; line-height:50px;border:1px dashed #F0F0F0;}
+#fk3{width:1900px; height:850px; float:center;  margin-top:0px; margin:auto; background:#FFF;border:1px dashed #F0F0F0;}

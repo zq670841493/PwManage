@@ -1,0 +1,99 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Safe.ck</title>
+
+
+<style type="text/css">
+div{border:1px solid #CCC}
+
+select{
+	background:#fafdfe;
+    height:30px;
+    width:180px;
+    line-height:40px;
+    border:1px solid #9bc0dd;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+	font-size:14px
+}
+     input{
+                border: 1px solid #ccc;
+                padding: 7px 0px;
+                border-radius: 3px;
+                padding-left:5px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+            }
+            input:focus{
+                    border-color: #66afe9;
+                    outline: 0;
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+            }
+</style>
+
+</head>
+
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+<div id="content">
+<div id="div" style="width:1730px;height:40px;line-height:40px; text-align:center">信息添加
+</div>
+
+<div id="div1">
+<br />
+<label>
+    <span>网站名:</span>
+    <input type="text" style="width:500px;" name="webname"  value="{{webname}}" required="required" />&nbsp;&nbsp;<span style="color:red">{{info}}</span>
+</label>
+</div>
+
+<div id="div2">
+<br />
+<label>
+    <span>网&nbsp;&nbsp;&nbsp;址:</span>
+    <input type="text" style="width:500px;" name="weblink"  value="{{weblink}}"/>
+</label>
+</div>
+
+<div id="div3">
+<br />
+<label>
+    <span>用户名:</span>
+    <input type="text" style="width:500px;" name="username"  value="{{username}}" required="required"/>
+</label>
+</div>
+
+<div id="div4">
+<br/>
+<label>
+    <span>密&nbsp;&nbsp;&nbsp;码:</span>
+    <input type="text" style="width:500px;" name="password" value="{{password}}" autocomplete="off" />
+    输入6位秘钥-<font color="#FF0000" >需记住</font>:
+    <input type="password" style="width:100px;" name="pwSK" pattern="[\S]{6}" required="required" title="需填入6位秘钥！" value="{{pwSK}}" />
+    <font color="#FF0000" >用于加密解密/此信息不会录入数据库</font>
+</label>
+</div>
+
+
+<div id="div6">
+<br />
+    <span>备&nbsp;&nbsp;&nbsp;注:</span>
+    <input type="text" style="width:500px;height: 30px;" name="other" value="{{other}}" />
+</div>
+<div id="div6">
+<br />
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;确认无误，来此提交:&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value="添&nbsp;&nbsp;&nbsp;加" class="input" style="width:200px; height: 30px"/></p>
+</div>
+</div>
+</form>
+</body>
+</html>

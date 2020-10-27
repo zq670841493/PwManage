@@ -1,0 +1,108 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+table.gridtable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+    text-align: center;
+}
+table.gridtable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+table.gridtable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+    <script src="{% static 'appPw/js/jquery-3.4.1.min.js' %}"></script>
+</head>
+<body>
+
+    <h3>信息展示</h3>
+    
+    <table class="gridtable">
+    <tr>
+        <th width="250">网站名</th>
+        <th width="200">网址</th>
+        <th width="200">用户名</th>
+        <th width="200">密码</th>
+        <th width="250">添加/修改时间</th>
+        <th width="250">备注</th>
+        <th width="50">删除</th>
+    </tr>
+    {% for line in pagelist %}
+
+    <tr>
+       
+        
+        <td>{{line.webname}}</td>
+        <td><a href={{line.weblink}} target="_blank">{{line.weblink}}</a></td>
+        <td>{{line.username}}</td>
+        <td >{{line.password}} 
+       
+            <br>
+            <a href="/infoChangePw/{{line.userID}}/{{line.webname}}/{{line.username}}/"  >修改密码</a>
+            <a href="/decryption/{{line.userID}}/{{line.webname}}/"  >解密</a>
+            </td>
+
+
+        <td><font color="#FF0000">{{line.time}}</font></td>
+         <td>{{line.other}}</td>
+        <td><a href="/deletePw/{{line.webname}}/{{line.time}}/" class="btn btn-danger" title="删除信息请谨慎，删除后无法进行恢复" onclick="return del()">删除</a> </td>
+
+    </tr>
+    {% endfor %}
+
+        </table>
+    
+        <ul>
+        <!-- 显示页码  students.paginator.page_range总共页1,2,3,等-->
+        选择页码
+        {% for index in pagelist.paginator.page_range %}
+            <!--当前页等于目前页时 就只显示页码，不可点击  注意：== 等于前后需要空格 -->
+            {% if index == pagelist.number %}
+               
+                    {{index}}
+               
+            {% else %}
+               
+                    <a href="/pwShow/{{index}}/{{page}}">{{index}}</a>
+              
+            {% endif %}
+
+        {% endfor %}
+   <select  onchange="javascript:location.href=this.value;"> 
+    <option  selected>当前{{page}}条/页</option> 
+    <option value="/pwShow/1/15" >&nbsp;&nbsp;&nbsp;15条/页</option>   <!-- 在域名后面加值 -->
+    <option value="/pwShow/1/30" >&nbsp;&nbsp;&nbsp;30条/页</option> 
+    <option value="/pwShow/1/50" >&nbsp;&nbsp;&nbsp;50条/页</option> 
+</select>
+
+    </ul>
+  
+<script type="text/javascript">
+    function del(){
+    if(!confirm("确认要删除？")){
+    window.event.returnValue = false;
+    }
+}
+</script>
+
+
+</body>
+</html>

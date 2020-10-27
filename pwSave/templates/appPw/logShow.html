@@ -1,0 +1,95 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+table.gridtable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+    text-align: center;
+}
+table.gridtable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+table.gridtable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+    <script src="{% static 'appPw/js/jquery-3.4.1.min.js' %}"></script>
+</head>
+<body>
+
+    <h3>信息展示</h3>
+    
+    <table class="gridtable">
+    <tr>
+        <th width="250">网站名</th>
+        <th width="250">操作时间</th>
+        <th width="250">操作内容</th>
+    </tr>
+    {% for line in pagelist %}
+
+    <tr>
+       
+        
+        <td>{{line.webname}}</td>
+        <td>{{line.time}}</td>
+        <td >{{line.changelog}} </td>
+       
+
+    </tr>
+    {% endfor %}
+
+        </table>
+    
+        <ul>
+        <!-- 显示页码  students.paginator.page_range总共页1,2,3,等-->
+        选择页码
+        {% for index in pagelist.paginator.page_range %}
+            <!--当前页等于目前页时 就只显示页码，不可点击  注意：== 等于前后需要空格 -->
+            {% if index == pagelist.number %}
+               
+                    {{index}}
+               
+            {% else %}
+               
+                    <a href="/logShow/{{index}}/{{page}}">{{index}}</a>
+              
+            {% endif %}
+
+        {% endfor %}
+
+   <select  onchange="javascript:location.href=this.value;"> 
+    <option  selected>当前{{page}}条/页</option> 
+    <option value="/logShow/1/20" >&nbsp;&nbsp;&nbsp;20条/页</option>   <!-- 在域名后面加值 -->
+    <option value="/logShow/1/40" >&nbsp;&nbsp;&nbsp;40条/页</option> 
+    <option value="/logShow/1/60" >&nbsp;&nbsp;&nbsp;60条/页</option> 
+</select>
+
+    </ul>
+  
+<script type="text/javascript">
+    function del(){
+    if(!confirm("确认要删除？")){
+    window.event.returnValue = false;
+    }
+}
+</script>
+
+
+</body>
+</html>
